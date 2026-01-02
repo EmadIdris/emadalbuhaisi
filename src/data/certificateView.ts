@@ -6,6 +6,8 @@ export const certificateView = {
     skills: "Key Skills",
     relatedProjects: "Related Projects",
     viewPdf: "Open Certificate (PDF)",
+    previewPdf: "Preview Certificate",
+    closePreview: "Close Preview",
     back: "Back to certifications",
   },
   notFound: {

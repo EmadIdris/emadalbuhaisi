@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Container from "../components/Container";
 import Navbar from "../components/Navbar";
@@ -12,6 +12,7 @@ import { projects } from "../data/projects";
 
 const CertificateDetail = () => {
   const { slug } = useParams();
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const cert = useMemo(() => certifications.find((item) => item.slug === slug), [slug]);
 
   if (!cert) {
@@ -98,10 +99,39 @@ const CertificateDetail = () => {
               >
                 {certificateView.detailLabels.viewPdf}
               </a>
+              <button
+                type="button"
+                onClick={() => setIsPreviewOpen(true)}
+                className="inline-flex items-center justify-center rounded-full border border-slate-200/80 bg-white/80 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-azure/60 hover:text-azure dark:border-slate-800/80 dark:bg-slate-900/70 dark:text-slate-200"
+              >
+                {certificateView.detailLabels.previewPdf}
+              </button>
             </div>
           </div>
         </Container>
       </Section>
+      {isPreviewOpen ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 p-6"
+          role="dialog"
+          aria-modal="true"
+          aria-label={certificateView.detailLabels.previewPdf}
+        >
+          <div className="relative w-full max-w-4xl overflow-hidden rounded-2xl bg-white shadow-2xl dark:bg-slate-900">
+            <div className="flex items-center justify-between border-b border-slate-200/70 px-6 py-4 dark:border-slate-800/70">
+              <h2 className="text-sm font-semibold text-slate-700 dark:text-slate-200">{cert.title}</h2>
+              <button
+                type="button"
+                onClick={() => setIsPreviewOpen(false)}
+                className="text-xs font-semibold uppercase text-azure"
+              >
+                {certificateView.detailLabels.closePreview}
+              </button>
+            </div>
+            <iframe title={cert.title} src={cert.pdfUrl} className="h-[70vh] w-full" />
+          </div>
+        </div>
+      ) : null}
       <Footer />
     </div>
   );

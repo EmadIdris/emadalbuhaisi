@@ -7,9 +7,9 @@
   linkedIn: "https://www.linkedin.com/in/emad-al-buhaisi-484019141/",
   avatarUrl: "/images/emad.jpg",
   avatarAlt: "Emad Al-Buhaisi",
-  heroLabel: "Enterprise Portfolio",
+  heroLabel: "Senior Software Engineer",
   heroValueProp:
-    "Senior Software Engineer & Automation Consultant | Expert in .NET, React, Microsoft Power Platform & n8n | Helping Businesses Build Smarter, Scalable Systems",
+    "Enterprise Software Engineer specializing in cloud-native systems, AI automation, and scalable web platforms.",
   heroCtas: {
     contactLabel: "Contact",
     linkedInLabel: "LinkedIn",
