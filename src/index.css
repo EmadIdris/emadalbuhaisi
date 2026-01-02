@@ -1,0 +1,63 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --bg: #f8fafc;
+  --fg: #0f172a;
+  --muted: #475569;
+  --surface: #ffffff;
+  --line: #e2e8f0;
+  --accent: #0078d4;
+  --accent-soft: rgba(0, 120, 212, 0.1);
+  --pattern: radial-gradient(1200px 600px at 10% -10%, rgba(0, 120, 212, 0.08), transparent 60%),
+    radial-gradient(800px 400px at 90% -20%, rgba(0, 99, 177, 0.08), transparent 55%);
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: #0b1220;
+  --fg: #e2e8f0;
+  --muted: #94a3b8;
+  --surface: #0f172a;
+  --line: #1f2937;
+  --accent: #47a3ff;
+  --accent-soft: rgba(71, 163, 255, 0.12);
+  --pattern: radial-gradient(1200px 600px at 10% -10%, rgba(71, 163, 255, 0.12), transparent 60%),
+    radial-gradient(800px 400px at 90% -20%, rgba(71, 163, 255, 0.08), transparent 55%);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: var(--bg);
+  background-image: var(--pattern);
+  color: var(--fg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.section-anchor {
+  scroll-margin-top: 96px;
+}
+
+@layer components {
+  .surface {
+    @apply rounded-2xl border border-slate-200/80 bg-white/80 shadow-sm backdrop-blur dark:border-slate-800/80 dark:bg-slate-900/60;
+  }
+
+  .section-title {
+    @apply text-2xl font-semibold tracking-tight text-slate-900 dark:text-white sm:text-3xl;
+  }
+
+  .section-subtitle {
+    @apply mt-2 text-sm text-slate-500 dark:text-slate-400 sm:text-base;
+  }
+}
